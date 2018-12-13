@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<ruleset name="CoerciveStandards">
+    <description>A set of custom coercive coding standards for PHP projects.</description>
+</ruleset>

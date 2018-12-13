@@ -29,7 +29,7 @@ class CoerciveStandards_Sniffs_DoubleQuoteArrayIndex implements Sniff
     public function register()
     {
         return array(
-            T_DOC_COMMENT_STRING
+            T_VARIABLE
         );
     }
 

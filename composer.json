@@ -1,0 +1,29 @@
+{
+  "name": "PHPCS-coercive-standards",
+  "type": "phpcodesniffer-standard",
+  "description": "PHPCS_Coercive_Standards rules (sniffs) to enforce PHP projects",
+  "keywords": [
+    "phpcs",
+    "standards"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Contributors",
+      "homepage": "https://github.com/umutphp/PHPCS_Coercive_Standards/graphs/contributors"
+    }
+  ],
+  "require": {
+    "php": ">=5.3",
+    "squizlabs/php_codesniffer": "^2.9.0 || ^3.0.2"
+  },
+  "require-dev": {
+    "phpcompatibility/php-compatibility": "^9.0"
+  },
+  "minimum-stability": "RC",
+  "support": {
+    "issues": "https://github.com/umutphp/PHPCS_Coercive_Standards/issues",
+    "wiki": "https://github.com/umutphp/PHPCS_Coercive_Standards/wiki",
+    "source": "https://github.com/umutphp/PHPCS_Coercive_Standards"
+  }
+}

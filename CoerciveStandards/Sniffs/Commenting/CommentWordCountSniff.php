@@ -4,19 +4,19 @@
  *
  * PHP version 5+
  *
- * @category  PHP
- * @package   PHP_CodeSniffer
- * @author    Your Name <you@domain.net>
- * @license   https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
- * @link      http://pear.php.net/package/PHP_CodeSniffer
+ * @category PHP
+ * @package  PHP_CodeSniffer
+ * @author   Your Name <you@domain.net>
+ * @license  https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
+ * @link     http://pear.php.net/package/PHP_CodeSniffer
  */
 
-namespace PHP_CodeSniffer\Standards\CoerciveStandards\Sniffs\DoubleQuoteArrayIndex;
+namespace CoerciveStandards\Sniffs\Commenting;
 
 use PHP_CodeSniffer\Sniffs\Sniff;
 use PHP_CodeSniffer\Files\File;
 
-class CoerciveStandards_Sniffs_DoubleQuoteArrayIndex implements Sniff
+class CoerciveStandards_Sniffs_Commenting_CommentWordCount implements Sniff
 {
     public $emptyTokens = array(
         T_DOC_COMMENT_TAG => T_DOC_COMMENT_TAG
@@ -29,14 +29,13 @@ class CoerciveStandards_Sniffs_DoubleQuoteArrayIndex implements Sniff
     public function register()
     {
         return array(
-            T_VARIABLE
+            T_DOC_COMMENT_STRING
         );
     }
 
     public function process(File $phpcsFile, $stackPtr)
     {
         $tokens = $phpcsFile->getTokens();
-
         /*
          * Ignore inherit doc tag
          */

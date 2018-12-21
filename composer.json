@@ -1,5 +1,5 @@
 {
-  "name": "PHPCS-coercive-standards",
+  "name": "umutphp/phpcs-coercive-standards",
   "type": "phpcodesniffer-standard",
   "description": "PHPCS_Coercive_Standards rules (sniffs) to enforce PHP projects",
   "keywords": [

@@ -6,7 +6,7 @@
  *
  * @category PHP
  * @package  PHP_CodeSniffer
- * @author   Your Name <you@domain.net>
+ * @author   Umut Işık <umutphp@gmail.com>
  * @license  https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
  * @link     http://pear.php.net/package/PHP_CodeSniffer
  */
@@ -16,7 +16,7 @@ namespace CoerciveStandards\Sniffs\Commenting;
 use PHP_CodeSniffer\Sniffs\Sniff;
 use PHP_CodeSniffer\Files\File;
 
-class CoerciveStandards_Sniffs_Commenting_CommentWordCount implements Sniff
+class CommentWordCount implements Sniff
 {
     public $emptyTokens = array(
         T_DOC_COMMENT_TAG => T_DOC_COMMENT_TAG

@@ -19,4 +19,5 @@ jobs:
           paths:
             - ./vendor
           key: v1-dependencies-{{ checksum "composer.json" }}
-      - run: ./vendor/bin/phpcs --standard=CoerciveStandards --report=checkstyle tests/sample.php || exit 0
+      - run: ./vendor/bin/phpcs --standard=CoerciveStandards --report=checkstyle tests/sample/errors.php || exit 0
+      - run: ./vendor/bin/phpcs --standard=CoerciveStandards --report=checkstyle tests/sample/correct.php

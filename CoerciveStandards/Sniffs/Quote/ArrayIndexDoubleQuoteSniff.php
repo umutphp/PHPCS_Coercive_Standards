@@ -31,9 +31,13 @@ class ArrayIndexDoubleQuote implements Sniff
 
     public function process(File $phpcsFile, $stackPtr)
     {
-        $tokens = $phpcsFile->getTokens();
-        var_dump($tokens[$stackPtr]['content']);
-        $error = 'Do not use double quote in array index';
-        $phpcsFile->addWarning($error, $stackPtr, 'ArrayIndexDoubleQuote');
+        /*$tokens = $phpcsFile->getTokens();
+        echo $tokens[$stackPtr]['content'] . PHP_EOL;
+        echo "\t" . $tokens[$stackPtr-2]['type'] . ": " . $tokens[$stackPtr-2]['content'] . PHP_EOL;
+        echo "\t" . $tokens[$stackPtr-1]['type'] . ": " . $tokens[$stackPtr-1]['content'] . PHP_EOL;
+        echo "\t" . $tokens[$stackPtr+1]['type'] . ": " . $tokens[$stackPtr+1]['content'] . PHP_EOL;
+        echo "\t" . $tokens[$stackPtr+2]['type'] . ": " . $tokens[$stackPtr+2]['content'] . PHP_EOL;
+        $error = 'Do not use double quote in array index';*/
+        //$phpcsFile->addWarning($error, $stackPtr, 'ArrayIndexDoubleQuote');
     }
 }

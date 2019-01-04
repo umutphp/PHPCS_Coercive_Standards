@@ -62,12 +62,12 @@ workflows:
   build_and_create:
     jobs:
       - build
-      - test-7.0
+      - test-7.0:
           requires:
             - build
-      - test-7.1
+      - test-7.1:
           requires:
             - build
-      - test-7.2
+      - test-7.2:
           requires:
             - build

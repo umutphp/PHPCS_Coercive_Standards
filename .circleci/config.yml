@@ -21,3 +21,47 @@ jobs:
           key: v1-dependencies-{{ checksum "composer.json" }}
       - run: ./vendor/bin/phpcs --standard=CoerciveStandards --report=checkstyle tests/sample/errors.php || exit 0
       - run: ./vendor/bin/phpcs --standard=CoerciveStandards --report=checkstyle tests/sample/correct.php
+  test-7.0:
+    docker:
+      - image: umutphp/php-docker-images-for-ci:7.0
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "composer.json" }}
+          - v1-dependencies-
+      - run: ./vendor/bin/phpcs --standard=CoerciveStandards --report=checkstyle tests/sample/errors.php || exit 0
+      - run: ./vendor/bin/phpcs --standard=CoerciveStandards --report=checkstyle tests/sample/correct.php
+  test-7.1:
+    docker:
+      - image: umutphp/php-docker-images-for-ci:7.1
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "composer.json" }}
+            - v1-dependencies-
+      - run: ./vendor/bin/phpcs --standard=CoerciveStandards --report=checkstyle tests/sample/errors.php || exit 0
+      - run: ./vendor/bin/phpcs --standard=CoerciveStandards --report=checkstyle tests/sample/correct.php
+  test-7.2:
+    docker:
+      - image: umutphp/php-docker-images-for-ci:7.2
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "composer.json" }}
+            - v1-dependencies-
+      - run: ./vendor/bin/phpcs --standard=CoerciveStandards --report=checkstyle tests/sample/errors.php || exit 0
+      - run: ./vendor/bin/phpcs --standard=CoerciveStandards --report=checkstyle tests/sample/correct.php
+workflows:
+  version: 2
+  build_and_create:
+    jobs:
+      - build
+      - test-7.0
+      - test-7.1
+      - test-7.2

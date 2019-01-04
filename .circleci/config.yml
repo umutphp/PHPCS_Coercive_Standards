@@ -11,18 +11,18 @@ jobs:
     steps:
       - checkout
       - run: composer install -n --prefer-dist
-          test-7.0:
-            docker:
-                - image: umutphp/php-docker-images-for-ci:7.0
-            working_directory: ~/repo
-            steps:
-              - checkout
-              - run: composer install -n --prefer-dist
-              - run: ./vendor/bin/phpcs --standard=CoerciveStandards --report=checkstyle tests/sample/errors.php || exit 0
-              - run: ./vendor/bin/phpcs --standard=CoerciveStandards --report=checkstyle tests/sample/correct.php
   test-5.6:
     docker:
         - image: umutphp/php-docker-images-for-ci:5.6
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run: composer install -n --prefer-dist
+      - run: ./vendor/bin/phpcs --standard=CoerciveStandards --report=checkstyle tests/sample/errors.php || exit 0
+      - run: ./vendor/bin/phpcs --standard=CoerciveStandards --report=checkstyle tests/sample/correct.php
+  test-7.0:
+    docker:
+        - image: umutphp/php-docker-images-for-ci:7.0
     working_directory: ~/repo
     steps:
       - checkout

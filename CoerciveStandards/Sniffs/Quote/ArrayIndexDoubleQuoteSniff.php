@@ -25,19 +25,35 @@ class ArrayIndexDoubleQuote implements Sniff
     public function register()
     {
         return array(
-            T_CONSTANT_ENCAPSED_STRING
+            T_ARRAY,
+            T_VARIABLE
         );
     }
 
     public function process(File $phpcsFile, $stackPtr)
     {
-        /*$tokens = $phpcsFile->getTokens();
-        echo $tokens[$stackPtr]['content'] . PHP_EOL;
-        echo "\t" . $tokens[$stackPtr-2]['type'] . ": " . $tokens[$stackPtr-2]['content'] . PHP_EOL;
-        echo "\t" . $tokens[$stackPtr-1]['type'] . ": " . $tokens[$stackPtr-1]['content'] . PHP_EOL;
-        echo "\t" . $tokens[$stackPtr+1]['type'] . ": " . $tokens[$stackPtr+1]['content'] . PHP_EOL;
-        echo "\t" . $tokens[$stackPtr+2]['type'] . ": " . $tokens[$stackPtr+2]['content'] . PHP_EOL;
-        $error = 'Do not use double quote in array index';*/
-        //$phpcsFile->addWarning($error, $stackPtr, 'ArrayIndexDoubleQuote');
+        $tokens = $phpcsFile->getTokens();
+
+        if ($tokens[$stackPtr]['type'] === 'T_ARRAY') {
+            $stringPosition = $phpcsFile->findNext(array(T_CONSTANT_ENCAPSED_STRING), $stackPtr);
+
+            if ($tokens[$stringPosition]['content'][0] === '"') {
+                $error = 'Do not use double quote in array index';
+                $phpcsFile->addWarning($error, $stackPtr, 'ArrayIndexDoubleQuote');
+            }
+        }
+
+        if ($tokens[$stackPtr]['type'] === 'T_VARIABLE') {
+            $openBracketPosition = $phpcsFile->findNext(array(T_OPEN_SQUARE_BRACKET), $stackPtr);
+            $equalPosition       = $phpcsFile->findNext(array(T_EQUAL), $stackPtr);
+            $stringPosition      = $phpcsFile->findNext(array(T_CONSTANT_ENCAPSED_STRING), $stackPtr);
+
+            if ($openBracketPosition < $equalPosition) {
+                if ($tokens[$stringPosition]['content'][0] === '"') {
+                    $error = 'Do not use double quote in array index';
+                    $phpcsFile->addWarning($error, $stackPtr, 'ArrayIndexDoubleQuote');
+                }
+            }
+        }
     }
 }

@@ -63,5 +63,11 @@ workflows:
     jobs:
       - build
       - test-7.0
+          requires:
+            - build
       - test-7.1
+          requires:
+            - build
       - test-7.2
+          requires:
+            - build

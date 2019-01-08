@@ -15,7 +15,8 @@
   ],
   "require": {
     "php": ">=5.3",
-    "squizlabs/php_codesniffer": "^2.9.0 || ^3.0.2"
+    "squizlabs/php_codesniffer": "^2.9.0 || ^3.0.2",
+    "bmitch/codor": "1.*"
   },
   "require-dev": {
     "phpcompatibility/php-compatibility": "^9.0"

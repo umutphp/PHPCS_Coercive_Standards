@@ -14,3 +14,10 @@ function sampleFunction() {
     $array["double_quote"] = "bla bla bla";
     $array[ "double_quote" ] = "bla bla bla";
 }
+
+
+class TestClassOne {
+	const lower_case_1 = 0;
+	
+	private const lower_case_2 = 0;
+}

@@ -14,3 +14,9 @@ function sampleFunction() {
     $array['single_quote'] = "bla bla bla";
     $array[ 'single_quote' ] = "bla bla bla";
 }
+
+class TestClassOne {
+	const UPPER_CASE_1 = 0;
+	
+	private const UPPER_CASE_2 = 0;
+}

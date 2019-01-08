@@ -17,7 +17,7 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
-      - run: composer install -n --prefer-dist
+      - run: composer install
       - run: ./vendor/bin/phpcs --standard=CoerciveStandards --report=checkstyle tests/sample/errors.php || exit 0
       - run: ./vendor/bin/phpcs --standard=CoerciveStandards --report=checkstyle tests/sample/correct.php
   test-7.1:
@@ -26,7 +26,7 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
-      - run: composer install -n --prefer-dist
+      - run: composer install
       - run: ./vendor/bin/phpcs --standard=CoerciveStandards --report=checkstyle tests/sample/errors.php || exit 0
       - run: ./vendor/bin/phpcs --standard=CoerciveStandards --report=checkstyle tests/sample/correct.php
   test-7.2:
@@ -35,7 +35,7 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
-      - run: composer install -n --prefer-dist
+      - run: composer installt
       - run: ./vendor/bin/phpcs --standard=CoerciveStandards --report=checkstyle tests/sample/errors.php || exit 0
       - run: ./vendor/bin/phpcs --standard=CoerciveStandards --report=checkstyle tests/sample/correct.php
   test-7.3:
@@ -44,7 +44,7 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
-      - run: composer install -n --prefer-dist
+      - run: composer install
       - run: ./vendor/bin/phpcs --standard=CoerciveStandards --report=checkstyle tests/sample/errors.php || exit 0
       - run: ./vendor/bin/phpcs --standard=CoerciveStandards --report=checkstyle tests/sample/correct.php
 workflows:

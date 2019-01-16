@@ -16,8 +16,8 @@ function sampleFunction() {
 }
 
 
-class TestClassOne {
-	const lower_case_1 = 0;
-	
-	private const lower_case_2 = 0;
+
+
+if (count($array) > 0 ) {
+	echo "Hobaaaa";
 }

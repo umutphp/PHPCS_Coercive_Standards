@@ -1,0 +1,21 @@
+language: php
+
+php:
+  - 7.0
+  - 7.1
+  - 7.2
+  - 7.3
+
+sudo: false
+
+cache:
+  directories:
+    - vendor
+    - $HOME/.composer/cache
+
+install:
+  - composer install --no-interaction --prefer-source
+
+script:
+  - ./vendor/bin/phpcs --standard=CoerciveStandards --report=checkstyle tests/sample/errors.php || exit 0
+  - ./vendor/bin/phpcs --standard=CoerciveStandards --report=checkstyle tests/sample/correct.php
